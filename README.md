@@ -63,16 +63,22 @@ webpack.config.js
 
 **To do**
 
-- Write build tool to:
-- - Compile JS components and move to dist
-- - Compile SCSS to css, autoprefix, minifiy and move to dist
-- - Copy contents of SCSS directory to dist
-- - Copy contents of assets directory to dist
-- Write task runner to:
-- - Publish to npm
-- - Test and lint components / scss
-- - Build storybook docs
-- - Start development enviroment (storybook with --watch)
-- Install Jest and Enzyme for unit testing
+Write build tool to:
+
+- [x] Copy contents of SCSS directory to dist
+- [] Copy contents of assets directory to dist (add test file)
+- [] Compile SCSS to css, autoprefix (with config file), minifiy and move to dist
+- [] Compile JS components and move to dist
+
+Write task runner to:
+
+- [] Publish to npm
+- [] Test and lint components / scss
+- [] Build storybook docs
+- [] Start development enviroment (storybook with --watch)
+
+Install depencies and setup:
+
+- [] Install Jest and Enzyme for unit testing
 
 
