@@ -1,0 +1,12 @@
+*~
+.DS_Store
+*.scssc
+node_modules/
+bower_components/
+public/
+dist/
+build/
+yarn.lock
+yarn-error.log
+package-lock.json
+directory-structure.txt
