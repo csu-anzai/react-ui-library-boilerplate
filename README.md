@@ -54,7 +54,7 @@ webpack.config.js
 
 - Removing dependeny code from dist JS
 - Test importing component from dist JS
-- Referencing assests (src links) from imported css / scss
+- Referencing assests (src links) from imported css / scss (will need `$asset-src` variable in scss). Alternatively, inline icons.
 - Vendor prefix css and SCSS
 - Compile, minifiy and strip comments from scss
 - Copy SCSS directory and assets directory to dist in entirity 
@@ -65,7 +65,7 @@ webpack.config.js
 
 - Write build tool to:
 - - Compile JS components and move to dist
-- - Compile SCSS to css, minifiy and move to dist
+- - Compile SCSS to css, autoprefix, minifiy and move to dist
 - - Copy contents of SCSS directory to dist
 - - Copy contents of assets directory to dist
 - Write task runner to:
