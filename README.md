@@ -58,7 +58,7 @@ webpack.config.js
 - Vendor prefix css and SCSS
 - Compile, minifiy and strip comments from scss
 - Copy SCSS directory and assets directory to dist in entirity 
-- Tree shaking / dead code elimination of imported css / scss (if we import entire scss file)
+- Tree shaking / dead code elimination of imported css / scss (if consumer imports entire scss file)
 - Install, setup and use of storybook.js
 
 **To do**
@@ -73,5 +73,6 @@ webpack.config.js
 - - Test and lint components / scss
 - - Build storybook docs
 - - Start development enviroment (storybook with --watch)
+- Install Jest and Enzyme for unit testing
 
 
