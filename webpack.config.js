@@ -1,9 +1,10 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-	entry: ['./src/styles/styles.scss'],
+	entry: ['./src/index.js'],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'react-ui-library-boilerplate.js',
@@ -15,7 +16,10 @@ module.exports = {
 		new CopyPlugin([
       { from: './src/assets', to: 'assets' },
       { from: './src/styles', to: 'styles' },
-    ]),
+		]),
+		new MiniCssExtractPlugin({
+			filename: 'styles/[name].min.css',
+		})
 	],
 	externals: {
     react: 'react'
@@ -37,18 +41,20 @@ module.exports = {
 				test: /\.scss$/,
 				exclude: /node_modules/,
 				use: [
+					/*
 					{
 						loader: 'file-loader',
 						options: {
 							name: 'styles/[name].min.css',
 						}
 					},
+					*/
 					{
-						loader: 'postcss-loader'
+						loader: MiniCssExtractPlugin.loader
 					},
-					{
-						loader: 'sass-loader'
-					}
+					'css-loader',
+					'postcss-loader',
+					'sass-loader'
 				]
 			}
 		]
