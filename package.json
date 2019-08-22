@@ -5,7 +5,8 @@
   "private": true,
   "main": "dist/react-ui-library-boilerplate.js",
   "scripts": {
-    "build": "webpack --env prod"
+    "build": "webpack --env.production",
+    "build:dev": "webpack --env.development"
   },
   "author": "James Humphreys",
   "license": "ISC",
