@@ -6,19 +6,16 @@ const pkg = require('./package.json');
 module.exports = env => {
 
   const libraryName = pkg.name;
-  
-  const mode = env.production ? 'production' : 'development';
-  const outputFile = env.production ? `${libraryName}.min.js` : `${libraryName}.js`;
 
   return {
-    mode: mode,
+    mode: env.production ? 'production' : 'development',
     entry: [
       './src/index.js', 
       './src/styles/styles.scss'
     ],
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: outputFile,
+      filename: env.production ? `${libraryName}.min.js` : `${libraryName}.js`,
       library: libraryName,
       libraryTarget: 'umd'
     },
