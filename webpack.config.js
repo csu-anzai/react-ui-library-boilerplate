@@ -6,16 +6,9 @@ const pkg = require('./package.json');
 module.exports = env => {
 
   const libraryName = pkg.name;
-  let outputFile, mode;
-
-  if( env && env.development ) {
-    mode = 'development';
-    outputFile = `${libraryName}.js`;
-  }
-  else {
-    mode = 'production';
-    outputFile = `${libraryName}.min.js`;
-  }
+  
+  const mode = env.production ? 'production' : 'development';
+  const outputFile = env.production ? `${libraryName}.min.js` : `${libraryName}.js`;
 
   return {
     mode: mode,
