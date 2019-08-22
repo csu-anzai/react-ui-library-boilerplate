@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const pkg = require('./package.json');
 
 module.exports = env => {
@@ -11,7 +12,8 @@ module.exports = env => {
     mode: env.production ? 'production' : 'development',
     entry: [
       './src/index.js', 
-      './src/styles/styles.scss'
+      './src/styles/styles.scss',
+      './src/styles/test.scss'
     ],
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -24,7 +26,11 @@ module.exports = env => {
       new CopyPlugin([
         { from: './src/assets', to: 'assets' },
         { from: './src/styles', to: 'styles' },
-      ])
+      ]),
+      new MiniCssExtractPlugin({
+        filename: env.production ? "styles/[name].min.css" : "styles/[name].css",
+        chunkFilename: env.production ? "styles/[id].min.css" : "styles/[id].css"
+      })
     ],
     externals: {
       react: 'react'
@@ -44,18 +50,40 @@ module.exports = env => {
           exclude: /node_modules/,
           use: [
             {
-              loader: 'file-loader',
+              loader: MiniCssExtractPlugin.loader,
               options: {
-                name: env.production ? 'styles/[name].min.css' : 'styles/[name].css'
+                publicPath: '../',
               }
+            },
+            'css-loader',
+            // {
+            //   loader: 'postcss-loader',
+            //   options: {
+            //     sourceMap: env.development ? 'inline' : false
+            //   }
+            // },
+            'postcss-loader',
+            {
+              loader: 'resolve-url-loader',
             },
             {
-              loader: 'postcss-loader',
+              loader: 'sass-loader',
               options: {
-                sourceMap: env.development ? 'inline' : false
+                sourceMap: true,
+                sourceMapContents: false
               }
-            },
-            'sass-loader'
+            }
+          ]
+        },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[folder]/[name].[ext]'
+              }
+            }
           ]
         }
       ]
