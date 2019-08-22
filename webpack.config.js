@@ -29,6 +29,7 @@ module.exports = env => {
     externals: {
       react: 'react'
     },
+    devtool: env.development ? 'inline-source-map': false,
     module: {
       rules: [
         {
@@ -45,10 +46,15 @@ module.exports = env => {
             {
               loader: 'file-loader',
               options: {
-                name: mode === 'production' ? 'styles/[name].min.css' : 'styles/[name].css'
+                name: env.production ? 'styles/[name].min.css' : 'styles/[name].css'
               }
             },
-            'postcss-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: env.development ? 'inline' : false
+              }
+            },
             'sass-loader'
           ]
         }
