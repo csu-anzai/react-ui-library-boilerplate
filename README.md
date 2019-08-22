@@ -58,16 +58,17 @@ webpack.config.js
 - Vendor prefix css and SCSS
 - Compile, minifiy and strip comments from scss
 - Copy SCSS directory and assets directory to dist in entirity 
-- Tree shaking / dead code elimination of imported css / scss (if consumer imports entire scss file)
+- Tree shaking / dead code elimination of imported css / scss (if consumer imports entire scss file) 'purgecss-webpack-plugin'
 - Install, setup and use of storybook.js
 
 **To do**
 
 Write build tool to:
 
+- [] Set mode based on production (passed from npm build script)
 - [x] Copy contents of SCSS directory to dist
 - [] Copy contents of assets directory to dist (add test file)
-- [] Compile SCSS to css, autoprefix (with config file), minifiy and move to dist
+- [] Compile SCSS to css, autoprefix (with config file), minifiy and move to dist "purgecss-webpack-plugin"
 - [] Compile JS components and move to dist
 
 Write task runner to:
