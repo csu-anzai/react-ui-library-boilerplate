@@ -1,8 +1,13 @@
 import React from 'react';
 
+const ImageUrl = require('../src/assets/rollup-logo.svg');
+
 const TestComponent = props => {
 	return(
-		<p className="ruilb-test-component">Test component!</p>
+    <React.Fragment>
+		  <p className="ruilb-test-component">Test component!</p>
+      <img src={ImageUrl} alt="Test Image"/>
+    </React.Fragment>
 	)
 }
 
