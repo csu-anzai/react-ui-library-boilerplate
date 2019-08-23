@@ -1,0 +1,10 @@
+@mixin test-component {
+
+  // Test component styles
+  .ruilb-test-component {
+    color: red;
+    user-select: none;
+    background-image: url('#{$asset-import-path}/webpack-logo.svg');
+  }
+
+}

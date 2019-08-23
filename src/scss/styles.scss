@@ -1,0 +1,16 @@
+// ------------------------------------------
+// Asset import path
+// ------------------------------------------
+$asset-import-path: "~/src/assets" !default;
+
+// ------------------------------------------
+// Component mixins
+// ------------------------------------------
+@import "test-component";
+
+// ------------------------------------------
+// Include all components helper mixin
+// ------------------------------------------
+@mixin include-all-components {
+  @include test-component;
+}
