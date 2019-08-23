@@ -6,8 +6,10 @@
   "main": "dist/react-ui-library-boilerplate.js",
   "scripts": {
     "build": "rollup -c",
+    "build:dev": "rollup -c --watch",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "start": "npm run build:dev & npm run storybook"
   },
   "author": "James Humphreys",
   "license": "ISC",
