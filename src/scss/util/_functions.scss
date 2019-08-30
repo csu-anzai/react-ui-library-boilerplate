@@ -1,0 +1,41 @@
+// --------------------------------------------------------
+//	Functions
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// Shade (add black to color)
+// --------------------------------------------------------
+@function shade($color, $percent) {
+  @return mix(black, $color, $percent);
+}
+
+// --------------------------------------------------------
+// Invert color based on passed color
+// --------------------------------------------------------
+@function set-color-invert($color) {
+	@if (lightness($color) > 55) {
+		// Lighter backgorund, return dark color
+		@return #303030;
+	} @else {
+		// Darker background, return light color
+		@return #fff;
+	}
+}
+
+// --------------------------------------------------------
+// Strip unit from number
+// --------------------------------------------------------
+@function strip-unit($number) {
+	@if type-of($number) == "number" and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+	@return $number;
+}
+
+// --------------------------------------------------------
+// Calculate rem from supplied px size
+// --------------------------------------------------------
+@function rem-calc($size) {
+	$remSize: strip-unit($size) / 16;
+	@return #{$remSize}rem;
+}

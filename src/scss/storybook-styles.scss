@@ -1,4 +1,7 @@
-$asset-import-path: '../assets';
-@import "ruib-styles";
+// ------------------------------------------
+// Storybook styles
+// ------------------------------------------
 
+$asset-import-path: '../assets';
+@import "ruilb-styles";
 @include include-all-components();

@@ -1,16 +1,29 @@
+// --------------------------------------------------------
+// Project - React UI Library Boilerplate
+// Repository - https://github.com/BinaryJim/react-ui-library-boilerplate
+// Developer - James Humphreys
+// Developer URL - https://binaryjim.co.uk
+// --------------------------------------------------------
+
 // ------------------------------------------
 // Asset import path
 // ------------------------------------------
 $asset-import-path: "../src/assets" !default;
 
 // ------------------------------------------
+// Util
+// ------------------------------------------
+@import "util/_all";
+
+// ------------------------------------------
 // Component mixins
 // ------------------------------------------
-@import "components/test-component";
+@import "components/_all";
 
 // ------------------------------------------
 // Include all components helper mixin
 // ------------------------------------------
 @mixin include-all-components {
-  @include test-component;
+  @include background-image-test;
+  @include button;
 }
