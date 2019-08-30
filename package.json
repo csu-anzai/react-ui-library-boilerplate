@@ -9,7 +9,7 @@
     "build:dev": "rollup -c --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages --dry-run",
+    "deploy-storybook": "storybook-to-ghpages",
     "start": "npm run build:dev & npm run storybook"
   },
   "author": "James Humphreys",
