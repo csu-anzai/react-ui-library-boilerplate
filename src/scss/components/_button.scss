@@ -1,0 +1,119 @@
+// --------------------------------------------------------
+// Button styles
+// --------------------------------------------------------
+@mixin button {
+
+  // Color options
+  $btn-colors: (
+    'primary': #3959da,
+    'alert': #b62929,
+    'warning': #cf921f,
+    'success': #7ebd37,
+    'black': #303030,
+    'white': #fff
+  );
+
+  // Size options
+  $btn-sizes: (
+    'sm': 14,
+    'reg': 16,
+		'lg': 18,
+	);
+
+  .ruilb-button {
+
+    // Base solid styles
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: normal;
+    -webkit-appearance: none;
+    border: rem-calc(2) solid transparent;
+	  outline: 0;
+    background-color: map-get($btn-colors, 'primary');
+    color: map-get($btn-colors, 'white');
+    border-radius: rem-calc(4);
+    padding: rem-calc(10) rem-calc(20);
+    font-size: rem-calc(map-get($btn-sizes, 'reg'));
+    cursor: pointer;
+    transition: 
+      background-color 0.3s ease-in-out, 
+      border-color 0.3s ease-in-out, 
+      color 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      outline: 0;
+    }
+
+    @media (hover: hover) {
+      &:hover,
+      &:focus {
+        background-color:  shade(map-get($btn-colors, 'primary'), 10%);
+      }
+    }
+
+    // Base outlined styles
+    &.outlined:not(:hover) {
+      background-color: map-get($btn-colors, 'white');
+      color: map-get($btn-colors, 'primary');
+      border: rem-calc(2) solid map-get($btn-colors, 'primary');
+    }
+
+    // Solid color modifiers
+    @each $label, $color in $btn-colors {
+    
+      &.color-#{$label} {
+        background-color: $color;
+        color: set-color-invert($color);
+
+        @media (hover: hover) {
+          &:hover,
+          &:focus {
+            background-color:  shade($color, 10%);
+          }
+        }
+
+      }
+
+    }
+
+    // Outlined color modifiers
+    @each $label, $color in $btn-colors {
+    
+      &.color-#{$label}.outlined:not(:hover) {
+        background-color: map-get($btn-colors, 'white');
+        color: $color;
+        border-color: $color;
+
+        @media (hover: hover) {
+          &:hover,
+          &:focus {
+            background-color:  map-get($btn-colors, 'white');
+          }
+        }
+
+      }
+
+    }
+
+
+    // Size modifiers
+    @each $label, $size in $btn-sizes {
+      
+      &.size-#{$label} {
+        font-size: rem-calc($size);
+      }
+      
+    }
+
+
+    // State modifiers
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+  }
+
+}
