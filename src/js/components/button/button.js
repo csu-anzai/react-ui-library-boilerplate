@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const Button = props => {
 	return(
     <button 
-      { ...props.classes ? { className : `ruilb-button ${props.classes}` } : { className: "ruilb-button" } }
-      { ...props.disabled ? { disabled: true } : null }
-      { ...props.onClick ? { onClick: props.onClick} : null }
+      className = { `ruilb-button ${props.classes}` }
+      disabled = { props.disabled }
+      onClick = { props.onClick }
     >
-    {props.children}
+    { props.children }
     </button>
 	)
 }
