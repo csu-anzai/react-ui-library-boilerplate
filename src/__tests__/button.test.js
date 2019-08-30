@@ -1,40 +1,40 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import toJson from 'enzyme-to-json'
 import Button from '../js/components/button';
+
+const createTestProps = props => {
+  return {
+    classes: 'inverted',
+    onClick: () => console.log('button clicked'),
+    ...props
+  }
+}
 
 describe('Button', () => {
 
 	it('should render without crashing', () => {
+
+    const props = createTestProps();
+
 		shallow(
-			<Button
-        classes="test-class"
-        disabled={false}
-        onClick={() => console.log('button clicked')}
-      >
-        Test button
-      </Button>
-		);
+			<Button {...props} >Test button</Button>
+    );
+    
   });
 
 });
 
-describe('Button - default render', () => {
+describe('Button - rendering', () => {
 
-  let component,
+  let props,
+      component,
       onClickFunc;
 
   beforeAll( () => {
 
     onClickFunc = jest.fn();
+    props = createTestProps( {onClick: onClickFunc} );
 
     component = shallow(
-      <Button
-          classes="inverted"
-          onClick={onClickFunc}
-        >
-          Test button
-        </Button>
+      <Button {...props} >Test button</Button>
     );
 
   });
@@ -43,53 +43,39 @@ describe('Button - default render', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 
-  it('should render as a button tag', () => {
-    expect(component.type()).toBe('button');
+  it('should render as a single button tag', () => {
+    expect(component.find('button')).toHaveLength(1);
   });
 
-  it('should have to correct class name applied to the root node', () => {
-    expect(component.at(0).hasClass('ruilb-button')).toEqual(true);
+  it('should have to correct class name applied', () => {
+    expect(component.find('button.ruilb-button')).toHaveLength(1);
   });
 
   it('should output the correct class name when provied via "classes" prop', () => {
-    expect(component.at(0).hasClass('inverted')).toEqual(true);
+    expect(component.find('button.ruilb-button').hasClass('inverted')).toEqual(true);
   });
 
   it('should not be disabled by default', () => {
-    expect(component.at(0).is('[disabled]')).toEqual(false);
-  });
-
-  it('should render a correct button label when passed ', () => {
-    expect(component.at(0).prop('children')).toBe('Test button');
-  })
-
-  it('should fire a callback function onClick', () => {
-    component.simulate('click');
-    expect(onClickFunc).toHaveBeenCalled();
-  });
-
-});
-
-describe('Button - disabled', () => {
-
-  let component;
-
-  beforeAll( () => {
-
-    component = shallow(
-      <Button
-        classes="test-class"
-        disabled={true}
-        onClick={() => console.log('button clicked')}
-      >
-        Test button
-      </Button>
-    );
-
+    expect(component.find('button.ruilb-button').is('[disabled]')).toEqual(false);
   });
 
   it('should render as disabled when provided a "disabled={true}" prop', () => {
-    expect(component.at(0).is('[disabled]')).toEqual(true);
+    component = shallow(<Button {...props} disabled={true} >Test button</Button>);
+    expect(component.find('button.ruilb-button').is('[disabled]')).toEqual(true);
   })
+
+  it('should not render as disabled when provided a "disabled={false}" prop', () => {
+    component = shallow(<Button {...props} disabled={false} >Test button</Button>);
+    expect(component.find('button.ruilb-button').is('[disabled]')).toEqual(false);
+  })
+
+  it('should render a correct button label when passed ', () => {
+    expect(component.find('button.ruilb-button').prop('children')).toBe('Test button');
+  })
+
+  it('should fire a callback function onClick', () => {
+    component.find('button.ruilb-button').simulate('click');
+    expect(onClickFunc).toHaveBeenCalled();
+  });
 
 });
