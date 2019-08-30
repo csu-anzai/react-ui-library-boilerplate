@@ -3,6 +3,7 @@
 exports[`Button - rendering should match snapshot 1`] = `
 <button
   className="ruilb-button inverted"
+  disabled={false}
   onClick={[MockFunction]}
 >
   Test button
