@@ -1,0 +1,19 @@
+// --------------------------------------------------------
+// Background image test styles
+// --------------------------------------------------------
+@mixin background-image-test {
+
+  .background-image-test {
+
+    &:before {
+      content: '';
+      display: block;
+      width: rem-calc(150);
+      height: rem-calc(150);
+      background-image: url(#{$asset-import-path}/rollup-logo.svg);
+      background-repeat: no-repeat;
+      margin: 0 auto rem-calc(10) auto;
+    }
+  }
+
+}
