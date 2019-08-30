@@ -56,17 +56,17 @@ describe('Button - rendering', () => {
   });
 
   it('should not be disabled by default', () => {
-    expect(component.find('button.ruilb-button').is('[disabled]')).toEqual(false);
+    expect(component.find('button.ruilb-button').prop('disabled')).toEqual(false);
   });
 
   it('should render as disabled when provided a "disabled={true}" prop', () => {
     component = shallow(<Button {...props} disabled={true} >Test button</Button>);
-    expect(component.find('button.ruilb-button').is('[disabled]')).toEqual(true);
+    expect(component.find('button.ruilb-button').prop('disabled')).toEqual(true);
   })
 
   it('should not render as disabled when provided a "disabled={false}" prop', () => {
     component = shallow(<Button {...props} disabled={false} >Test button</Button>);
-    expect(component.find('button.ruilb-button').is('[disabled]')).toEqual(false);
+    expect(component.find('button.ruilb-button').prop('disabled')).toEqual(false);
   })
 
   it('should render a correct button label when passed ', () => {
