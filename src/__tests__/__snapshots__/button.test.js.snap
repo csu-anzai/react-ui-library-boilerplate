@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button - default render should match snapshot 1`] = `
+exports[`Button - rendering should match snapshot 1`] = `
 <button
   className="ruilb-button inverted"
   onClick={[MockFunction]}
