@@ -8,7 +8,6 @@ dist/
 build/
 yarn.lock
 yarn-error.log
-package-lock.json
 directory-structure.txt
 coverage/
 storybook-static/
