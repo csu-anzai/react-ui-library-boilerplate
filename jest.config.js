@@ -22,11 +22,6 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: null,
-  // collectCoverageFrom: [
-  //   "<rootDir>/src/js/**/*.{js,jsx}",
-  //   "!<rootDir>/node_modules/",
-  //   "!<rootDir>/src/js/**/index.{js,jsx}"
-  // ],
   collectCoverageFrom: [
     "<rootDir>/src/**/*.{js,jsx}",
     "!<rootDir>/node_modules/"
@@ -93,8 +88,8 @@ module.exports = {
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
   moduleNameMapper: {
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
-    "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__tests__/setup/fileMock.js",
+    "\\.(css|less)$": "<rootDir>/src/__tests__/setup/styleMock.js"
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
