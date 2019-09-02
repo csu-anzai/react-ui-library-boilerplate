@@ -173,7 +173,8 @@ module.exports = {
   //   "/node_modules/"
   // ],
   testPathIgnorePatterns: [
-    "/node_modules/"
+    "/node_modules/",
+    "/__tests__/setup/"
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
