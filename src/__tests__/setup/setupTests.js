@@ -1,7 +1,7 @@
 import React from 'react';
-import { shallow, render, mount } from 'enzyme';
-import toJson from 'enzyme-to-json'
-import { configure } from 'enzyme';
+import { shallow, render, mount, configure } from 'enzyme';
+import toJson from 'enzyme-to-json';
+
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
