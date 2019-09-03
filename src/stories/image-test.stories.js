@@ -4,7 +4,7 @@ import centered from '@storybook/addon-centered/react';
 import { ImageTest } from '../../dist/react-ui-library-boilerplate';
 
 storiesOf('ImageTest', module)
-  .addDecorator(centered)
-  .add('Default', () => 
-    <ImageTest />
-  );
+	.addDecorator(centered)
+	.add('Default', () =>
+		<ImageTest />
+	);

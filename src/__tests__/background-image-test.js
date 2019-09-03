@@ -5,9 +5,11 @@ describe('BackgroundImageTest', () => {
 	it('should render without crashing', () => {
 
 		shallow(
+
 			<BackgroundImageTest />
-    );
-    
-  });
+
+		);
+
+	});
 
 });
