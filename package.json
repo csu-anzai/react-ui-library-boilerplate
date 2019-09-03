@@ -63,6 +63,7 @@
     "rollup-plugin-commonjs": "^10.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "sass-loader": "^8.0.0",
+    "sass-true": "^5.0.0",
     "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
