@@ -1,0 +1,43 @@
+{
+	"env": {
+			"browser": true,
+			"es6": true,
+			"jest": true
+	},
+	"extends": [
+			"standard",
+			"plugin:react/recommended"
+	],
+	"globals": {
+			"Atomics": "readonly",
+			"SharedArrayBuffer": "readonly",
+			"React": "readonly",
+			"shallow": "readonly",
+			"mount": "readonly",
+			"render": "readonly",
+			"toJson": "readonly"
+	},
+	"parserOptions": {
+			"ecmaFeatures": {
+					"jsx": true
+			},
+			"ecmaVersion": 2018,
+			"sourceType": "module"
+	},
+	"parser": "babel-eslint",
+	"plugins": [
+			"react"
+	],
+	"settings": {
+		"react": {
+			"pragma": "React",
+			"version": "detect"
+		}
+	},
+	"rules": {
+		"semi": ["error", "always"],
+		"eol-last": ["error", "never"],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"indent": [2, "tab"]
+	}
+}
