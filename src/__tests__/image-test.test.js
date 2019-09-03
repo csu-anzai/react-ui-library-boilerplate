@@ -6,8 +6,8 @@ describe('ImageTest', () => {
 
 		shallow(
 			<ImageTest />
-    );
-    
-  });
+		);
+
+	});
 
 });
