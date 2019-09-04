@@ -2,20 +2,29 @@
 
 Button is an element for user interaction. It should be used for invoking an event or action.
 
-`import { Button } from 'react-ui-library-boilerplate'
+`import { Button } from 'react-ui-library-boilerplate'`
 
-## Basic usage
+---
+
+## Usage
 
 ```jsx
 <Button
 	name="button-name"
+	classes="custom-btn-class"
+	color="primary"
+	size="reg"
+	outlined={false}
+	disabled={false}
 	onClick={handleonButtonClick}
 >
 Button
 </Button>
 ```
 
-### Props
+---
+
+## Props
 
 The button element accepts the following properties:
 
