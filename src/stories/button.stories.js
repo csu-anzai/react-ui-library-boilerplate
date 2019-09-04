@@ -4,8 +4,9 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import centered from '@storybook/addon-centered/react';
 import { Button } from '../../dist/react-ui-library-boilerplate';
+import buttonDocs from '../docs/button-docs.md';
 
-storiesOf('Button', module)
+storiesOf('Elements | Button', module)
 	.addDecorator(centered)
 	.addDecorator(withKnobs)
 	.add('Default', () =>
@@ -16,4 +17,7 @@ storiesOf('Button', module)
 		>
 			{text('Button label', 'Test Button')}
 		</Button>
+		, {
+			notes: { markdown: buttonDocs }
+		}
 	);
