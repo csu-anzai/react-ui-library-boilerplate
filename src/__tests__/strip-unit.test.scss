@@ -1,0 +1,15 @@
+@include describe('Strip-unit function') {
+
+	@include it('Returns a unitless number if given a number with unit') {
+
+		@include assert-equal(strip-unit(10px), 10);
+
+	}
+
+	@include it('Returns a unitless number if given a unitless number') {
+
+		@include assert-equal(strip-unit(20), 20);
+
+	}
+
+}
